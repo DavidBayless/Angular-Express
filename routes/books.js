@@ -38,5 +38,13 @@ router.delete('/:id', function(req, res, next) {
   });
 });
 
+router.put('/:id', function(req, res, next) {
+  books().where('id', req.params.id).update({bookName: req.body.name, author: req.body.author, bookDescription: req.body.description, imageUrl: req.body.image})
+  .then(function(response) {
+    res.status = 200;
+    res.end();
+  });
+});
+
 
 module.exports = router;
