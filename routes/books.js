@@ -22,5 +22,13 @@ router.get('/:id', function(req, res, next) {
   });
 });
 
+router.post('/', function(req, res, next) {
+  books().insert({bookName: req.body.name, author: req.body.author, bookDescription: req.body.description, imageUrl: req.body.image})
+  .then(function(response) {
+    res.status = 200;
+    res.end();
+  });
+});
+
 
 module.exports = router;
