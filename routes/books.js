@@ -30,5 +30,13 @@ router.post('/', function(req, res, next) {
   });
 });
 
+router.delete('/:id', function(req, res, next) {
+  books().where('id', req.params.id).del()
+  .then(function(response) {
+    res.status = 200;
+    res.end();
+  });
+});
+
 
 module.exports = router;
